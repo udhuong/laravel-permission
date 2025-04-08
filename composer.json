@@ -1,5 +1,5 @@
 {
-    "name": "udhuong/permission",
+    "name": "udhuong/laravel-permission",
     "version": "1.0.0",
     "description": "Laravel Base Permission",
     "type": "library",
@@ -20,7 +20,6 @@
         "php": "^8.3",
         "laravel/framework": "^11.0|^12.0",
         "laravel/passport": "^12.4",
-        "firebase/php-jwt": "^6.11",
         "spatie/laravel-permission": "^6.16",
         "udhuong/laravel-common": "^1.0"
     },
