@@ -58,6 +58,9 @@ class PermissionRule
                     Permission::USER_VIEW
                 ],
             ],
+            'scopes' => [
+                'handle' => ['team_a:service_a.user.read']
+            ],
         ]
     ];
 }
