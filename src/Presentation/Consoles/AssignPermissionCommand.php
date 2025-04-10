@@ -23,7 +23,7 @@ class AssignPermissionCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Gán quyền cho user';
 
     /**
      * Execute the console command.

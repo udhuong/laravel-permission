@@ -21,7 +21,7 @@ class MakePermissionCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Tạo các quyền và vai trò trong hệ thống';
 
     /**
      * Execute the console command.
