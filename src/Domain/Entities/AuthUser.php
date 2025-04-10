@@ -8,8 +8,11 @@ use Udhuong\Permission\Domain\ValueObjects\Role;
 class AuthUser
 {
     public int $userId;
+
     public string $name;
+
     public string $username;
+
     public string $email;
 
     /**

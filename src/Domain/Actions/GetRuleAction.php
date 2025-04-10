@@ -10,8 +10,7 @@ class GetRuleAction
 {
     /**
      * Lấy thông tin quyền của controller
-     * @param string $action
-     * @return PermissionDTO
+     *
      * @throws AppException
      */
     public static function handle(string $action): PermissionDTO
@@ -19,14 +18,14 @@ class GetRuleAction
         $segments = explode('@', $action, 2);
         $controllerName = $segments[0] ?? '';
         $actionName = $segments[1] ?? '';
-        if (!$controllerName || !$actionName) {
+        if (! $controllerName || ! $actionName) {
             throw new AppException('Không xác định được controller hoặc action.');
         }
 
-        $dto = new PermissionDTO();
+        $dto = new PermissionDTO;
 
         $rules = PermissionRule::RULES[$controllerName] ?? [];
-        if (!$rules) {
+        if (! $rules) {
             return $dto;
         }
 

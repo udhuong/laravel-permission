@@ -12,8 +12,6 @@ class AuthRepositoryImpl implements AuthRepository
 {
     /**
      * Lấy thông tin chi tiết của người dùng bằng id
-     * @param int $userId
-     * @return AuthUser|null
      */
     public function getUserDetailById(int $userId): ?AuthUser
     {
@@ -22,18 +20,18 @@ class AuthRepositoryImpl implements AuthRepository
             return null;
         }
 
-        $authUser = new AuthUser();
+        $authUser = new AuthUser;
         $authUser->userId = $user->id;
         $authUser->name = $user->name;
         $authUser->username = $user->username;
         $authUser->email = $user->email;
         $authUser->roles = $user->roles()->pluck('name')
-            ->map(fn($item) => Role::tryFrom($item))
-            ->filter(fn($item) => $item !== null)
+            ->map(fn ($item) => Role::tryFrom($item))
+            ->filter(fn ($item) => $item !== null)
             ->toArray();
         $authUser->permissions = $user->getAllPermissions()->pluck('name')
-            ->map(fn($item) => Permission::tryFrom($item))
-            ->filter(fn($item) => $item !== null)
+            ->map(fn ($item) => Permission::tryFrom($item))
+            ->filter(fn ($item) => $item !== null)
             ->toArray();
 
         return $authUser;

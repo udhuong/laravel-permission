@@ -31,8 +31,9 @@ class AssignPermissionCommand extends Command
     public function handle(): void
     {
         $user = User::where('username', 'admin')->first();
-        if (!$user) {
+        if (! $user) {
             $this->error('User not found');
+
             return;
         }
         $role = Role::firstWhere([
@@ -52,5 +53,4 @@ class AssignPermissionCommand extends Command
 
         $this->info('Add role and permissions to user successfully');
     }
-
 }

@@ -9,8 +9,6 @@ class RolePermissionMapping
 {
     /**
      * Get the mapping of roles to permissions.
-     *
-     * @return array
      */
     public static function getData(): array
     {
@@ -38,7 +36,7 @@ class RolePermissionMapping
                     Permission::POST_DELETE,
                     Permission::POST_PUBLISH,
                 ],
-            ]
+            ],
         ];
     }
 }

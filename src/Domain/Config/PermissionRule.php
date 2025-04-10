@@ -20,10 +20,10 @@ class PermissionRule
         'Test' => [
             'roles' => [
                 '*' => [
-                    Role::ADMIN
+                    Role::ADMIN,
                 ],
                 'handle' => [
-                    Role::ADMIN
+                    Role::ADMIN,
                 ],
                 'handle2' => [
                     Role::ADMIN,
@@ -32,7 +32,7 @@ class PermissionRule
             ],
             'permissions' => [
                 'handle' => [
-                    Permission::USER_CREATE
+                    Permission::USER_CREATE,
                 ],
                 'handle2' => [
                     Permission::USER_CREATE,
@@ -40,10 +40,10 @@ class PermissionRule
                 ],
             ],
             'scopes' => [
-                'handle' => ['os:nvbc.smart-locker.access']
+                'handle' => ['os:nvbc.smart-locker.access'],
             ],
             'usernames' => [
-                'handle' => ['huongud1']
+                'handle' => ['huongud1'],
             ],
         ],
         GetUserDetailController::class => [
@@ -55,12 +55,12 @@ class PermissionRule
             ],
             'permissions' => [
                 'handle' => [
-                    Permission::USER_VIEW
+                    Permission::USER_VIEW,
                 ],
             ],
             'scopes' => [
-                'handle' => ['team_a:service_a.user.read']
+                'handle' => ['team_a:service_a.user.read'],
             ],
-        ]
+        ],
     ];
 }

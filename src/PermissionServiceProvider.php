@@ -29,7 +29,7 @@ class PermissionServiceProvider extends ServiceProvider
         $router->aliasMiddleware('verify.permission', VerifyPermission::class);
 
         // Đăng ký route
-        $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
+        $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
     }
 
     private function registerRepository(): void

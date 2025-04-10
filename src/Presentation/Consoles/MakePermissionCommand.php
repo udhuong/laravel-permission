@@ -43,7 +43,7 @@ class MakePermissionCommand extends Command
                 $this->info("Permission: {$permission->getLabel()}");
             }
 
-            $this->info("----------------------------");
+            $this->info('----------------------------');
         }
     }
 }

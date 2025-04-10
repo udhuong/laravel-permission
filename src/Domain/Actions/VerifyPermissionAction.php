@@ -16,9 +16,6 @@ class VerifyPermissionAction
      * 2. Check role
      * 3. Check permission
      *
-     * @param string $action
-     * @param AuthUser $user
-     * @return void
      * @throws AppException
      */
     public function handle(string $action, AuthUser $user): void
@@ -40,30 +37,20 @@ class VerifyPermissionAction
         throw new PermissionException('Bạn không có quyền truy cập.');
     }
 
-    /**
-     * @param PermissionDTO $config
-     * @param AuthUser $user
-     * @return bool
-     */
     private function checkUsername(PermissionDTO $config, AuthUser $user): bool
     {
         return in_array($user->username, $config->usernames, true);
     }
 
-    /**
-     * @param PermissionDTO $config
-     * @param AuthUser $user
-     * @return bool
-     */
     private function checkRole(PermissionDTO $config, AuthUser $user): bool
     {
         // Không có role nào coi như không có quyền
-        if (!$user->roles) {
+        if (! $user->roles) {
             return false;
         }
 
         // Không có role nào trong config coi như không truy cập được
-        if (!$config->roles) {
+        if (! $config->roles) {
             return false;
         }
 
@@ -74,25 +61,20 @@ class VerifyPermissionAction
 
         // Chỉ cần 1 role config 1 role của user trùng nhau là được phép truy cập
         return array_intersect(
-                array_map(static fn($role) => $role->name, $user->roles),
-                array_map(static fn($role) => $role->name, $config->roles)
-            ) !== [];
+            array_map(static fn ($role) => $role->name, $user->roles),
+            array_map(static fn ($role) => $role->name, $config->roles)
+        ) !== [];
     }
 
-    /**
-     * @param PermissionDTO $config
-     * @param AuthUser $user
-     * @return bool
-     */
     private function checkPermission(PermissionDTO $config, AuthUser $user): bool
     {
         // Không có role nào coi như không có quyền
-        if (!$user->permissions) {
+        if (! $user->permissions) {
             return false;
         }
 
         // Không có role nào trong config coi như không truy cập được
-        if (!$config->permissions) {
+        if (! $config->permissions) {
             return false;
         }
 
@@ -103,8 +85,8 @@ class VerifyPermissionAction
 
         // Chỉ cần 1 role config 1 role của user trùng nhau là được phép truy cập
         return array_intersect(
-                array_map(static fn($permission) => $permission->name, $user->permissions),
-                array_map(static fn($permission) => $permission->name, $config->permissions)
-            ) !== [];
+            array_map(static fn ($permission) => $permission->name, $user->permissions),
+            array_map(static fn ($permission) => $permission->name, $config->permissions)
+        ) !== [];
     }
 }

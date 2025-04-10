@@ -1,4 +1,5 @@
 <?php
+
 namespace Udhuong\Permission\Presentation\Http\Controllers;
 
 use App\Models\User;
@@ -9,13 +10,10 @@ use Udhuong\LaravelCommon\Presentation\Http\Response\Responder;
 
 class GetUserDetailController extends Controller
 {
-    /**
-     * @param Request $request
-     * @return JsonResponse
-     */
     public function handle(Request $request): JsonResponse
     {
         $user = User::find($request->get('user_id'));
+
         return Responder::success(
             $user,
             'Lấy thông tin người dùng thành công.'
